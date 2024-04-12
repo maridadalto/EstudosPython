@@ -40,10 +40,11 @@ while opcao != "x":
             else:
                 if numero_saques >=3:
                     print("Número máximo de saques excedido")
-                saldo -= valor_saque
-                saques.append(valor_saque)
-                numero_saques += 1
-                print(f"Saque realizado, seu saldo é: R$ {saldo:.2f}")
+                else:
+                    saldo -= valor_saque
+                    saques.append(valor_saque)
+                    numero_saques += 1
+                    print(f"Saque realizado, seu saldo é: R$ {saldo:.2f}")
         elif opcao == "e":
             print("Operação - Extrato")
             i = 0
