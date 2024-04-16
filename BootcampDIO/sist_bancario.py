@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-depositos = []
-saques = []
+operacoes = []
 saldo = 0
 numero_saques = 0
 
@@ -26,7 +25,7 @@ while opcao != "x":
             if valor_dep <= 0:
                 print("Não permitido depósito de valor negativo")
             else:
-                depositos.append(valor_dep)
+                operacoes.append(f"Depósito no valor de R$ {valor_dep:.2f}")
                 saldo += valor_dep
                 print(f"Depósito realizado, seu saldo é: R$ {saldo:.2f}")
         elif opcao == "s":
@@ -41,18 +40,15 @@ while opcao != "x":
                 if numero_saques >=3:
                     print("Número máximo de saques excedido")
                 else:
+                    operacoes.append(f"Saque no valor de R$ {valor_saque:.2f}")
                     saldo -= valor_saque
-                    saques.append(valor_saque)
                     numero_saques += 1
                     print(f"Saque realizado, seu saldo é: R$ {saldo:.2f}")
         elif opcao == "e":
             print("Operação - Extrato")
             i = 0
-            for i in range(len(depositos)):
-                print(f"Depósito no valor de + {depositos[i]}")
-                i += 1
-            for i in range(len(saques)):
-                print(f"Saque no valor de - {saques[i]}")
+            for i in range(len(operacoes)):
+                print(operacoes[i])
                 i += 1
             print(f"\nSaldo final R$ {saldo:.2f}")
         elif opcao == "x":
